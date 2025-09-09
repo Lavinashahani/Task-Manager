@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #f9f9f9;
+  height: 100vh;
+  position: relative;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+  overflow-y: scroll;
+}
+
+.scrollbar-hidden {
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
