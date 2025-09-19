@@ -1,4 +1,4 @@
-Lucid Task
+## Lucid Task
 
 A simple full-stack task management app to create, track, and manage tasks.
 
@@ -31,23 +31,23 @@ A simple full-stack task management app to create, track, and manage tasks.
    ```bash
    git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
 
-##Install backend dependencies:
+## Install backend dependencies:
 
 cd backend
 npm install
 
-##Install frontend dependencies:
+## Install frontend dependencies:
 
 cd frontend
 npm install
 
-##Setup environment variables in .env (backend):
+## Setup environment variables in .env (backend):
 
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
 PORT=8000
 
-##Running the Project
+## Running the Project
 
 Backend:
 cd backend
