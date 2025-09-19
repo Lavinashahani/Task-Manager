@@ -1,9 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
-import IconGrid from "../../Icons/IconGrid";
-import IconFileCheck from "../../Icons/IconFileCheck";
-import IconCheck from "../../Icons/IconCheck";
-import IconStopwatch from "../../Icons/IconStopwatch";
-import IconDeleteAll from "../../Icons/IconDeleteAll";
+import IconGrid from "../../public/Icons/IconGrid";
+import IconFileCheck from "../../public/Icons/IconFileCheck";
+import IconCheck from "../../public/Icons/IconCheck";
+import IconStopwatch from "../../public/Icons/IconStopwatch";
+import IconDeleteAll from "../../public/Icons/IconDeleteAll";
 
 const MiniSideBar = () => {
   const { pathname } = useLocation();
