@@ -3,10 +3,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useAuthStore } from "./authStore.js";
 
-const API_URL =
-  import.meta.env.MODE === "development"
-    ? "https://lucidtask-61o9.onrender.com/api/v1"
-    : "/api/v1";
+const API_URL = "https://lucidtask-61o9.onrender.com/api/v1";
 
 axios.defaults.withCredentials = true;
 

@@ -1,10 +1,7 @@
 import { create } from "zustand";
 import axios from "axios";
 
-const API_URL =
-  import.meta.env.MODE === "development"
-    ? "https://lucidtask-61o9.onrender.com/api/v1"
-    : "/api/v1";
+const API_URL = "https://lucidtask-61o9.onrender.com/api/v1";
 
 axios.defaults.withCredentials = true;
 
