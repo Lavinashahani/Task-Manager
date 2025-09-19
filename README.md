@@ -7,9 +7,8 @@ A simple full-stack task management app to create, track, and manage tasks.
 - Create, update, and delete tasks
 - Track completed vs pending tasks
 - Set priority and due dates for tasks
-- Responsive UI with separate frontend and backend
+- Separate frontend and backend
 - Dashboard with task completion charts
-- User profile management
 
 ## How to Use
 
