@@ -3,7 +3,7 @@ import axios from "axios";
 
 const API_URL =
   import.meta.env.MODE === "development"
-    ? "http://localhost:8000/api/v1"
+    ? "https://lucidtask-61o9.onrender.com/api/v1"
     : "/api/v1";
 
 axios.defaults.withCredentials = true;
