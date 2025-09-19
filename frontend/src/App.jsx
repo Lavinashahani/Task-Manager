@@ -6,6 +6,10 @@ import LoginPage from "./pages/LogInPage";
 import DashboardPage from "./pages/DashboardPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
+import CompletedPage from "./pages/LayoutPages/CompletedPage";
+import OverduePage from "./pages/LayoutPages/OverduePage";
+import PendingPage from "./pages/LayoutPages/PendingPage";
+import NotFound from "./pages/NotFoundPage";
 
 import LoadingSpinner from "./components/LoadingSpinner";
 
@@ -46,28 +50,6 @@ function App() {
 
   return (
     <div className="h-screen ">
-      {/* <FloatingShape
-        color="bg-green-500"
-        size="w-64 h-64"
-        top="-5%"
-        left="10%"
-        delay={0}
-      />
-      <FloatingShape
-        color="bg-emerald-500"
-        size="w-48 h-48"
-        top="70%"
-        left="80%"
-        delay={5}
-      />
-      <FloatingShape
-        color="bg-lime-500"
-        size="w-32 h-32"
-        top="40%"
-        left="-10%"
-        delay={2}
-      /> */}
-
       <Routes>
         <Route
           path="/"
@@ -78,6 +60,9 @@ function App() {
           }
         >
           <Route index element={<DashboardPage />} />
+          <Route path="completed" element={<CompletedPage />} />
+          <Route path="pending" element={<PendingPage />} />
+          <Route path="overdue" element={<OverduePage />} />
         </Route>
         <Route
           path="/signup"
@@ -113,7 +98,8 @@ function App() {
           }
         />
         {/* catch all routes */}
-        <Route path="*" element={<Navigate to="/" replace />} />
+        {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Toaster position="top-center" />
     </div>

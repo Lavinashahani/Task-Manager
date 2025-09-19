@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-// import { useTasks } from "../store/TaskStore";
 import { useAuthStore } from "../store/authStore.js";
+import { useTaskStore } from "../store/taskStore.js";
 import { github, logOut, profile } from "../utils/Icons.jsx";
 
 function Header() {
@@ -8,11 +8,13 @@ function Header() {
   const name = user?.name || "User";
   const userId = user?._id;
 
+  const { openModalForAdd, activeTasks } = useTaskStore();
+  const active = activeTasks();
+  const navigate = useNavigate();
+
   const handleLogout = async () => {
     await logout();
   };
-  // const { openModalForAdd, activeTasks } = useTasks();
-  //const navigate = useNavigate();
 
   const socialLinks = [
     { icon: github, href: "https://github.com/Lavinashahani" },
@@ -35,9 +37,7 @@ function Header() {
           {userId ? (
             <>
               You have{" "}
-              <span className="font-bold  text-[#3aafae]">
-                5{/* {activeTasks.length} */}
-              </span>{" "}
+              <span className="font-bold  text-[#3aafae]">{active.length}</span>{" "}
               active tasks
             </>
           ) : (
@@ -50,11 +50,11 @@ function Header() {
         <button
           className="px-8 py-3 bg-[#3aafae] text-white rounded-[50px] hover:bg-[#00A1F1] hover:text-white transition-all duration-200 ease-in-out"
           onClick={() => {
-            // if (userId) {
-            //   openModalForAdd();
-            // } else {
-            //   navigate("/login");
-            // }
+            if (userId) {
+              openModalForAdd();
+            } else {
+              navigate("/login");
+            }
           }}
         >
           {userId ? "Add a new Task" : "Login / Register"}

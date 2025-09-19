@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuthStore } from "../store/authStore.js";
+import { useAuthStore } from "../../store/authStore.js";
 import { motion } from "framer-motion";
 
-import { useTaskStore } from "../store/taskStore.js";
-import Filters from "../components/Filters.jsx";
-import TaskItem from "../components/TaskItem.jsx";
-import { filteredTasks } from "../utils/utilities.js";
-import { container, item } from "../utils/animations.jsx";
-
-export default function DashboardPage() {
+import { useTaskStore } from "../../store/taskStore.js";
+import Filters from "../../components/Filters.jsx";
+import TaskItem from "../../components/TaskItem.jsx";
+import { filteredTasks, overdueTasks } from "../../utils/utilities.js";
+import { container, item } from "../../utils/animations.jsx";
+const OverduePage = () => {
   const navigate = useNavigate();
   const { user } = useAuthStore();
 
@@ -19,10 +18,17 @@ export default function DashboardPage() {
     }
   }, [user, navigate]);
 
-  const { tasks, getTasks, openModalForAdd, priority, setPriority } =
-    useTaskStore();
+  const {
+    tasks,
+    getTasks,
 
-  const filtered = filteredTasks(tasks, priority);
+    openModalForAdd,
+    priority,
+    setPriority,
+  } = useTaskStore();
+
+  const overdue = overdueTasks(tasks);
+  const filtered = filteredTasks(overdue, priority);
 
   useEffect(() => {
     setPriority("all");
@@ -37,7 +43,7 @@ export default function DashboardPage() {
   return (
     <main className="m-2">
       <div className="flex justify-between">
-        <h1 className="text-2xl font-bold">All Tasks</h1>
+        <h1 className="text-2xl font-bold">Overdue Tasks</h1>
         <Filters />
       </div>
 
@@ -62,26 +68,6 @@ export default function DashboardPage() {
       </motion.div>
     </main>
   );
-}
+};
 
-// import React, { useEffect } from "react";
-// import { useTaskStore } from "../store/taskStore.js";
-
-// const DashboardPage = () => {
-//   const { getTasks, tasks } = useTaskStore();
-
-//   useEffect(() => {
-//     // Fetch tasks only once when component mounts
-//     getTasks();
-//   }, []);
-//   console.log("Tasks:", tasks);
-
-//   return (
-//     <div>
-//       <h1>Dashboard Page</h1>
-//       <p>Total tasks: {tasks.length}</p>
-//     </div>
-//   );
-// };
-
-// export default DashboardPage;
+export default OverduePage;

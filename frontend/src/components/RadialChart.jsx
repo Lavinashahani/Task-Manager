@@ -1,29 +1,53 @@
+import { useTaskStore } from "../store/taskStore";
 import {
   RadialBarChart,
   RadialBar,
   PolarRadiusAxis,
   Label,
-  Tooltip,
+  Cell,
 } from "recharts";
 
-const chartData = [
-  { name: "Completed", value: 1260, fill: "#6366f1" }, // Indigo
-  { name: "Pending", value: 570, fill: "#22c55e" }, // Green
-];
-
 const RadialChart = () => {
-  //   const totalVisitors = chartData[0].desktop + chartData[0].mobile;
+  const { tasks, completedTasks, activeTasks } = useTaskStore();
+  const totalTasks = tasks.length;
 
-  const totalTasks = chartData.reduce((sum, entry) => sum + entry.value, 0);
-
+  const chartData = [
+    {
+      completed: completedTasks().length,
+      pending: totalTasks - completedTasks().length + 1,
+    },
+  ];
   return (
     <div>
       <div className="mt-1 mb-4 text-center text-sm">
         <p className="text-base font-semibold">Completed vs Pending</p>
-        <p className="flex items-center justify-center text-gray-500 text-sm gap-2">
-          Incresed efficiency by 12% this month
-        </p>
+        {/* Indicators (Legend) */}
+        <div className="mt-2 flex justify-center gap-6">
+          <div className="flex items-center gap-2 text-sm">
+            <span
+              className="inline-block w-3 h-3 rounded-full"
+              style={{ backgroundColor: "#10b981" }}
+            ></span>
+            <span className="text-zinc-700 font-medium">
+              Completed:{" "}
+              <strong className="text-zinc-800">
+                {completedTasks().length}
+              </strong>
+            </span>
+          </div>
+          <div className="flex items-center gap-2 text-sm">
+            <span
+              className="inline-block w-3 h-3 rounded-full"
+              style={{ backgroundColor: "#3b82f6" }}
+            ></span>
+            <span className="text-zinc-700 font-medium">
+              Pending:{" "}
+              <strong className="text-zinc-800">{activeTasks().length}</strong>
+            </span>
+          </div>
+        </div>
       </div>
+
       {/* Chart */}
       <div className="flex justify-center items-center h-[240px]">
         <RadialBarChart
@@ -35,7 +59,6 @@ const RadialChart = () => {
           innerRadius="70%"
           outerRadius="95%"
         >
-          <Tooltip cursor={false} />
           <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
             <Label
               content={({ viewBox }) => {
@@ -52,14 +75,14 @@ const RadialChart = () => {
                         y={(viewBox.cy || 0) - 16}
                         className="fill-gray-900 text-2xl font-bold"
                       >
-                        {/* {totalVisitors.toLocaleString()} */} 200
+                        {totalTasks.toLocaleString()}
                       </tspan>
                       <tspan
                         x={viewBox.cx}
                         y={(viewBox.cy || 0) + 8}
-                        className="fill-gray-500 text-sm"
+                        className="fill-zinc-700 text-md font-semibold"
                       >
-                        Tasks
+                        Total Tasks
                       </tspan>
                     </text>
                   );
@@ -70,7 +93,26 @@ const RadialChart = () => {
           </PolarRadiusAxis>
 
           {/* Stacked bars */}
-          <RadialBar dataKey="value" stackId="a" cornerRadius={5} />
+
+          {/* <RadialBar dataKey="value" fillKey="fill" cornerRadius={5}>
+            {chartData.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={entry.fill} />
+            ))}
+          </RadialBar> */}
+          <RadialBar
+            dataKey="completed"
+            stackId="a"
+            cornerRadius={2}
+            fill="#10b981"
+            className="stroke-transparent stroke-2"
+          />
+          <RadialBar
+            dataKey="pending"
+            fill="#5c82ff"
+            stackId="a"
+            cornerRadius={2}
+            className="stroke-transparent stroke-2"
+          />
         </RadialBarChart>
       </div>
     </div>
@@ -78,3 +120,8 @@ const RadialChart = () => {
 };
 
 export default RadialChart;
+
+// const chartData = [
+//   { name: "Completed", value: completedTasks().length, fill: "#10b981" },
+//   { name: "Pending", value: activeTasks().length, fill: "#3b82f6" },
+// ];

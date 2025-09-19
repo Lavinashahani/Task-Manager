@@ -1,8 +1,13 @@
 import React from "react";
 import { useAuthStore } from "../store/authStore.js";
+import { useTaskStore } from "../store/taskStore.js";
 
 const Profile = () => {
   const { user } = useAuthStore();
+  const { tasks, activeTasks, completedTasks } = useTaskStore();
+  const openTasks = activeTasks();
+  const highTasks = tasks.filter((task) => task.priority === "High");
+  const doneTasks = completedTasks();
 
   return (
     <div className="mx-4 mb-4">
@@ -34,7 +39,7 @@ const Profile = () => {
             <p className="pl-4 relative flex gap-2">
               <span className="absolute h-[70%] w-[0.2rem] left-[1px] top-1/2 translate-y-[-50%] bg-purple-500 rounded-[5px]"></span>
               <span className="font-medium text-3xl text-[#333]">
-                {/* {tasks.length} */}10
+                {tasks.length}
               </span>
             </p>
           </div>
@@ -42,19 +47,19 @@ const Profile = () => {
           <div className="text-gray-400">
             <p className="text-sm">In Progress:</p>
             <p className="pl-4 relative flex gap-2">
-              <span className="absolute h-[70%] w-[0.2rem] left-[1px] top-1/2 translate-y-[-50%] bg-[#3AAFAE] rounded-[5px]"></span>
+              <span className="absolute h-[70%] w-[0.2rem] left-[1px] top-1/2 translate-y-[-50%] bg-[#5c82ff] rounded-[5px]"></span>
               <span className="font-medium text-3xl text-[#333]">
-                {/* {activeTasks.length} */} 11
+                {openTasks.length}
               </span>
             </p>
           </div>
-          {/* open tasks */}
+          {/* high tasks */}
           <div className="text-gray-400">
-            <p className="text-sm">Open Tasks:</p>
+            <p className="text-sm">High Prior Tasks:</p>
             <p className="pl-4 relative flex gap-2">
               <span className="absolute h-[70%] w-[0.2rem] left-[1px] top-1/2 translate-y-[-50%] bg-orange-400 rounded-[5px]"></span>
               <span className="font-medium text-3xl text-[#333]">
-                {/* {activeTasks.length} */} 13
+                {highTasks.length}
               </span>
             </p>
           </div>
@@ -65,7 +70,7 @@ const Profile = () => {
             <p className="pl-4 relative flex gap-2">
               <span className="absolute h-[70%] w-[0.2rem] left-[1px] top-1/2 translate-y-[-50%] bg-green-400 rounded-[5px]"></span>
               <span className="font-medium text-3xl text-[#333]">
-                {/* {completedTasks.length} */} 12
+                {doneTasks.length}
               </span>
             </p>
           </div>

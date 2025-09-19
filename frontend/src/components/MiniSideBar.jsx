@@ -38,15 +38,15 @@ const MiniSideBar = () => {
   return (
     <div className="basis-[5rem] h-full flex flex-col bg-[#f9f9f9] shadow-[0_0_10px_rgba(0,0,0,0.1)] z-40">
       <div className="flex items-center justify-center h-[5rem]">
-        <img src="../../logo.png" width={200} height={200} alt="logo" />
+        <img src="../../public/logo.png" width={40} height={40} alt="logo" />
       </div>
       <div className="mt-8 flex-1 flex flex-col items-center justify-between">
         <ul className="flex flex-col gap-10">
           {navItems.map((item, index) => (
             <li key={index} className="relative group">
-              <Link href={item.link}>{item.icon}</Link>
+              <Link to={item.link}>{item.icon}</Link>
 
-              <span className="u-triangle absolute top-[50%] translate-y-[-50%] left-8 text-xs pointer-events-none text-white bg-[#3aafae] px-2 py-1 rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span className="absolute top-[50%] translate-y-[-50%] left-8 text-xs pointer-events-none text-white bg-[#3aafae] px-2 py-1 rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 {item.title}
               </span>
             </li>

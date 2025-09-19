@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const taskSchema = new mongoose.Schema(
   {
-    title: { type: String, required: true },
+    title: { type: String, required: true, default: "New Title", trim: true },
     description: { type: String, default: "No Description" },
     dueDate: { type: Date, default: Date.now() },
     status: {

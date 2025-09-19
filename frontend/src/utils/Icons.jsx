@@ -12,3 +12,4 @@ export const mail = <i className="fa-regular fa-envelope"></i>;
 export const profile = <i className="fa-solid fa-user"></i>;
 export const home = <i className="fas fa-home"></i>;
 export const logOut = <i className="fa-solid fa-right-from-bracket"></i>;
+export const arrowDown = <i className="fa-solid fa-chevron-down"></i>;
