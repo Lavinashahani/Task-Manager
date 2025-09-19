@@ -18,7 +18,7 @@ const Profile = () => {
         <div>
           <img
             className=" rounded-full border-2 border-[#E6E6E6]"
-            src="../../public/avatar.png"
+            src="../../avatar.png"
             height={40}
             width={40}
           />

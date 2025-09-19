@@ -1,9 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
-import IconGrid from "../../public/Icons/IconGrid";
-import IconFileCheck from "../../public/Icons/IconFileCheck";
-import IconCheck from "../../public/Icons/IconCheck";
-import IconStopwatch from "../../public/Icons/IconStopwatch";
-import IconDeleteAll from "../../public/Icons/IconDeleteAll";
+import IconGrid from "../../Icons/IconGrid";
+import IconFileCheck from "../../Icons/IconFileCheck";
+import IconCheck from "../../Icons/IconCheck";
+import IconStopwatch from "../../Icons/IconStopwatch";
+import IconDeleteAll from "../../Icons/IconDeleteAll";
 
 const MiniSideBar = () => {
   const { pathname } = useLocation();
@@ -38,7 +38,7 @@ const MiniSideBar = () => {
   return (
     <div className="basis-[5rem] h-full flex flex-col bg-[#f9f9f9] shadow-[0_0_10px_rgba(0,0,0,0.1)] z-40">
       <div className="flex items-center justify-center h-[5rem]">
-        <img src="../../public/logo.png" width={40} height={40} alt="logo" />
+        <img src="../../logo.png" width={40} height={40} alt="logo" />
       </div>
       <div className="mt-8 flex-1 flex flex-col items-center justify-between">
         <ul className="flex flex-col gap-10">
