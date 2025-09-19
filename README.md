@@ -1,4 +1,4 @@
-#Lucid Task
+##Lucid Task
 
 A simple full-stack task management app to create, track, and manage tasks.
 
@@ -11,16 +11,12 @@ A simple full-stack task management app to create, track, and manage tasks.
 - Dashboard with task completion charts
 - User profile management
 
----
-
 ## How to Use
 
 1. Open the app in your browser.
 2. Create a new task by entering a title, description, due date, and priority.
 3. Mark tasks as completed when done.
 4. View task statistics on the dashboard (completed vs pending).
-
----
 
 ## Tech Stack
 
@@ -29,31 +25,29 @@ A simple full-stack task management app to create, track, and manage tasks.
 - **State Management:** Zustand
 - **Authentication & User Management:** JWT, Context API
 
----
-
 ## Installation
 
 1. Clone the repo:  
    ```bash
    git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
 
-#Install backend dependencies:
+##Install backend dependencies:
 
 cd backend
 npm install
 
-#Install frontend dependencies:
+##Install frontend dependencies:
 
 cd frontend
 npm install
 
-#Setup environment variables in .env (backend):
+##Setup environment variables in .env (backend):
 
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
 PORT=8000
 
-#Running the Project
+##Running the Project
 
 Backend:
 cd backend
