@@ -1,4 +1,5 @@
 #Lucid Task
+
 A simple full-stack task management app to create, track, and manage tasks.
 
 ## Features
