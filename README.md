@@ -7,9 +7,8 @@ A simple full-stack task management app to create, track, and manage tasks.
 - Create, update, and delete tasks
 - Track completed vs pending tasks
 - Set priority and due dates for tasks
-- Responsive UI with separate frontend and backend
+- Separate frontend and backend
 - Dashboard with task completion charts
-- User profile management
 
 ## How to Use
 
@@ -29,7 +28,7 @@ A simple full-stack task management app to create, track, and manage tasks.
 
 1. Clone the repo:  
    ```bash
-   git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+   git clone https://github.com/Lavinashahani/Task-Manager.git
 
 ## Install backend dependencies:
 
